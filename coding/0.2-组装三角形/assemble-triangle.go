@@ -5,12 +5,20 @@ import (
 )
 
 func main() {
-    arr := []int {1, 2, 3, 4, 5}
-    total := getTriangleNum(arr)
-    fmt.Println("total is ", total)
+    //arr := []int {1, 2, 3, 4, 5}
+    var arr []int 
+    var count int
+    fmt.Scanln(&count)
+    for i := 0; i < count; i++ {
+        var num int 
+        fmt.Scanf("%d", &num)
+        arr = append(arr, num)
+    }
+    total := getTrangleNum(arr)
+    fmt.Println(total)
 }
 
-func getTriangleNum(arr []int) (int) {
+func getTrangleNum(arr []int) (int) {
     var a int
     var b int
     var c int
@@ -20,8 +28,8 @@ func getTriangleNum(arr []int) (int) {
         for j := i+1; j < len(arr)-1; j++ {
             b = arr[j]
             for k := j+1; k < len(arr); k++ {
-		c = arr[k]
-                if isTriangle(a, b, c) {
+                c = arr[k]
+                if isTrangle(a, b, c) {
                     total++
                 }
             }
@@ -30,8 +38,7 @@ func getTriangleNum(arr []int) (int) {
     return total
 }
 
-func isTriangle(a int, b int, c int) (bool) {
-    fmt.Println(a, b, c)
+func isTrangle(a int, b int, c int) (bool) {
     if (a + b > c && a + c > b && b + c > a) {
         return true
     }
